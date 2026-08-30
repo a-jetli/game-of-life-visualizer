@@ -19,7 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        Canvas canvas = new Canvas(500, 500);
+        Canvas canvas = new Canvas(500, 500); //decouple this later
         GraphicsContext g = canvas.getGraphicsContext2D();
         g.setFill(Color.DARKSLATEGRAY);
         g.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
