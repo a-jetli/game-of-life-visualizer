@@ -202,6 +202,7 @@ public class App extends Application {
                     int i = cell[0];
                     int j = cell[1];
 
+                    clearFutureHistory(); //for cleanliness
                     drawValue = !grid[i][j];   // start on dead = paint; start on live = erase
                     grid[i][j] = drawValue;
 
@@ -274,6 +275,7 @@ public class App extends Application {
                 isPlaying = false;
                 mode = Mode.PAUSED;
             } else {
+                clearFutureHistory(); //for cleanliness
                 timeline.play();
                 isPlaying = true;
                 mode = Mode.PLAYING;
@@ -407,6 +409,12 @@ public class App extends Application {
         }
 
         return new int[]{i, j};
+    }
+
+    void clearFutureHistory() {
+        while (history.size() > historyIndex + 1) {
+            history.remove(history.size() - 1);
+        }
     }
 
     public static void main(String[] args) {
